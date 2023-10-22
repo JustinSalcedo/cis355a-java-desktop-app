@@ -1,0 +1,4 @@
+Jack Black#123 Any St, Los Angeles, CA 90021#Grass#30.0#20.0#3000.0
+Mary Winters#921 W. Ash Dr, Tempe, AZ 82021#Gravel#15.0#10.0#300.0
+Taylor Jones#472 W 97th St, NY, NY 10001#Gravel#7.0#5.0#70.0
+Mary Williams#929 W Fir St, Seatle, WA 85992#Grass#20.0#20.0#2000.0

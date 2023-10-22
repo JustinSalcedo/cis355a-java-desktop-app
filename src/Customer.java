@@ -8,7 +8,7 @@ import java.text.DecimalFormat;
 
 /**
  *
- * @author Student
+ * @author Justin Salcedo
  */
 public class Customer {
     // attributes
