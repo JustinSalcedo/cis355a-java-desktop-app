@@ -1,4 +1,7 @@
 
+import java.net.URL;
+import javax.swing.ImageIcon;
+import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 
 /*
@@ -30,22 +33,22 @@ public class LandscapeGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        btgYardType = new javax.swing.ButtonGroup();
         lblCompanyName = new javax.swing.JLabel();
         lblInstructions1 = new javax.swing.JLabel();
-        lblName = new javax.swing.JLabel();
-        lblAddress = new javax.swing.JLabel();
-        txtAddress = new javax.swing.JTextField();
-        txtName = new javax.swing.JTextField();
-        lblInstructions2 = new javax.swing.JLabel();
-        lblWidth = new javax.swing.JLabel();
-        txtWidth = new javax.swing.JTextField();
-        lblLength = new javax.swing.JLabel();
-        txtLength = new javax.swing.JTextField();
-        btnCalculate = new javax.swing.JButton();
-        lblOrderSummary = new javax.swing.JLabel();
-        scrOrderSummary = new javax.swing.JScrollPane();
-        txaOrderInfo = new javax.swing.JTextArea();
-        btnSubmitOrder = new javax.swing.JButton();
+        lblGrassCost = new javax.swing.JLabel();
+        lblGravelCost = new javax.swing.JLabel();
+        btnNext = new javax.swing.JButton();
+        btnReset = new javax.swing.JButton();
+        rdoGrass = new javax.swing.JRadioButton();
+        rdoGravel = new javax.swing.JRadioButton();
+        lblPhoto = new javax.swing.JLabel();
+        jMenuBar1 = new javax.swing.JMenuBar();
+        mnuFile = new javax.swing.JMenu();
+        mniExit = new javax.swing.JMenuItem();
+        mnuOrder = new javax.swing.JMenu();
+        mniSubmitOrder = new javax.swing.JMenuItem();
+        mniReset = new javax.swing.JMenuItem();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Justin Salcedo Landscape");
@@ -54,155 +57,196 @@ public class LandscapeGUI extends javax.swing.JFrame {
         lblCompanyName.setText("Justin Salcedo Landscapes");
 
         lblInstructions1.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblInstructions1.setText("Please enter your information:");
+        lblInstructions1.setText("Would you like a grass or gravel yard?");
 
-        lblName.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblName.setText("Name:");
+        lblGrassCost.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lblGrassCost.setText("$5 per sqft");
 
-        lblAddress.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblAddress.setText("Address:");
+        lblGravelCost.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
+        lblGravelCost.setText("$2 per sqft");
 
-        txtAddress.setNextFocusableComponent(txtWidth);
-
-        txtName.setNextFocusableComponent(txtAddress);
-
-        lblInstructions2.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblInstructions2.setText("Enter the length and width of your yard:");
-
-        lblWidth.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblWidth.setText("Width (ft):");
-
-        txtWidth.setNextFocusableComponent(txtLength);
-
-        lblLength.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        lblLength.setText("Length (ft):");
-
-        txtLength.setNextFocusableComponent(btnCalculate);
-
-        btnCalculate.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        btnCalculate.setText("Calculate");
-        btnCalculate.setNextFocusableComponent(btnSubmitOrder);
-        btnCalculate.addActionListener(new java.awt.event.ActionListener() {
+        btnNext.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        btnNext.setText("Next");
+        btnNext.setNextFocusableComponent(btnReset);
+        btnNext.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnCalculateActionPerformed(evt);
+                btnNextActionPerformed(evt);
             }
         });
 
-        lblOrderSummary.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        lblOrderSummary.setText("Order Summary");
-
-        txaOrderInfo.setEditable(false);
-        txaOrderInfo.setBackground(new java.awt.Color(255, 255, 255));
-        txaOrderInfo.setColumns(16);
-        txaOrderInfo.setFont(new java.awt.Font("Segoe UI", 0, 16)); // NOI18N
-        txaOrderInfo.setRows(5);
-        scrOrderSummary.setViewportView(txaOrderInfo);
-
-        btnSubmitOrder.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
-        btnSubmitOrder.setText("Submit Order");
-        btnSubmitOrder.addActionListener(new java.awt.event.ActionListener() {
+        btnReset.setFont(new java.awt.Font("Segoe UI", 0, 20)); // NOI18N
+        btnReset.setText("Reset");
+        btnReset.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnSubmitOrderActionPerformed(evt);
+                btnResetActionPerformed(evt);
             }
         });
+
+        btgYardType.add(rdoGrass);
+        rdoGrass.setFont(new java.awt.Font("Cantarell", 0, 16)); // NOI18N
+        rdoGrass.setText("Grass");
+        rdoGrass.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdoGrassActionPerformed(evt);
+            }
+        });
+
+        btgYardType.add(rdoGravel);
+        rdoGravel.setFont(new java.awt.Font("Cantarell", 0, 16)); // NOI18N
+        rdoGravel.setText("Gravel");
+        rdoGravel.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                rdoGravelActionPerformed(evt);
+            }
+        });
+
+        lblPhoto.setIcon(new javax.swing.ImageIcon(getClass().getResource("/dirt.jpg"))); // NOI18N
+
+        mnuFile.setText("File");
+
+        mniExit.setText("Exit");
+        mniExit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniExitActionPerformed(evt);
+            }
+        });
+        mnuFile.add(mniExit);
+
+        jMenuBar1.add(mnuFile);
+
+        mnuOrder.setText("Order");
+
+        mniSubmitOrder.setText("Submit Order");
+        mniSubmitOrder.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniSubmitOrderActionPerformed(evt);
+            }
+        });
+        mnuOrder.add(mniSubmitOrder);
+
+        mniReset.setText("Reset");
+        mniReset.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                mniResetActionPerformed(evt);
+            }
+        });
+        mnuOrder.add(mniReset);
+
+        jMenuBar1.add(mnuOrder);
+
+        setJMenuBar(jMenuBar1);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addGap(55, 55, 55)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(186, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addGap(132, 132, 132)
-                        .addComponent(lblCompanyName)
-                        .addGap(140, 140, 140))
                     .addGroup(layout.createSequentialGroup()
+                        .addComponent(lblCompanyName)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 89, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(lblInstructions1)
                             .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(lblAddress)
-                                    .addComponent(lblName))
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, 256, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(lblInstructions2)
-                            .addGroup(layout.createSequentialGroup()
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(btnCalculate)
+                                .addGap(66, 66, 66)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addComponent(lblPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(lblWidth)
-                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                        .addComponent(txtWidth, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(lblLength)))
-                                .addGap(18, 18, 18)
-                                .addComponent(txtLength, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(lblOrderSummary)
-                                .addGap(71, 71, 71))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addComponent(btnSubmitOrder)
-                                .addGap(65, 65, 65))
-                            .addComponent(scrOrderSummary, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 285, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addGap(59, 59, 59))
+                                        .addComponent(lblGrassCost)
+                                        .addGap(60, 60, 60)
+                                        .addComponent(lblGravelCost))))
+                            .addGroup(layout.createSequentialGroup()
+                                .addGap(74, 74, 74)
+                                .addComponent(rdoGrass)
+                                .addGap(79, 79, 79)
+                                .addComponent(rdoGravel)))
+                        .addGap(18, 18, 18)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(btnReset, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnNext, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(111, 111, 111))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(45, 45, 45)
+                .addGap(25, 25, 25)
                 .addComponent(lblCompanyName)
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(lblInstructions1)
-                    .addComponent(lblOrderSummary))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addComponent(lblInstructions1)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(btnNext)
+                        .addGap(18, 18, 18)
+                        .addComponent(btnReset))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblName)
-                            .addComponent(txtName, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addComponent(rdoGrass)
+                            .addComponent(rdoGravel))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblAddress)
-                            .addComponent(txtAddress, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblGrassCost)
+                            .addComponent(lblGravelCost))
                         .addGap(18, 18, 18)
-                        .addComponent(lblInstructions2)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(lblWidth)
-                            .addComponent(txtWidth, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(lblLength)
-                            .addComponent(txtLength, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(scrOrderSummary, javax.swing.GroupLayout.PREFERRED_SIZE, 170, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(btnSubmitOrder)
-                            .addComponent(btnCalculate))))
-                .addContainerGap(49, Short.MAX_VALUE))
+                        .addComponent(lblPhoto, javax.swing.GroupLayout.PREFERRED_SIZE, 145, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(43, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnCalculateActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCalculateActionPerformed
-        // validate the inputs
-        if (validateInputs() == false) {
-            return;      // end the method if validation failed
-        }
-        // create the Customer object and show the information
-        Customer cust = createCustomer();
-        txaOrderInfo.setText(cust.getDetails());
-    }//GEN-LAST:event_btnCalculateActionPerformed
+    private void btnNextActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNextActionPerformed
+        // create the second GUI form
+        LandscapeGUI_Info infoForm = new LandscapeGUI_Info();
 
-    private void btnSubmitOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitOrderActionPerformed
-        submitOrder();
-    }//GEN-LAST:event_btnSubmitOrderActionPerformed
+        // set default close operation to "dispose" so application stays open
+        infoForm.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+
+        // launch the second GUI form by making it visible
+        infoForm.setVisible(true);
+    }//GEN-LAST:event_btnNextActionPerformed
+
+    private void btnResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnResetActionPerformed
+        reset();
+    }//GEN-LAST:event_btnResetActionPerformed
+
+    private void rdoGrassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoGrassActionPerformed
+        if (rdoGrass.isSelected())
+        {
+            // look in directory where class exists, and get location of "grass.jpg"
+            URL location = this.getClass().getResource("grass.jpg");
+
+            // create image using the location of "grass.jpg"
+            ImageIcon icon = new ImageIcon(location);
+
+            // set the image icon to the label
+            lblPhoto.setIcon(icon);
+        }
+    }//GEN-LAST:event_rdoGrassActionPerformed
+
+    private void rdoGravelActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_rdoGravelActionPerformed
+        if (rdoGravel.isSelected())
+        {
+            // find image, create image icon, and set image icon to label
+            lblPhoto.setIcon(new ImageIcon(this.getClass().getResource("gravel.jpg")));
+        }
+    }//GEN-LAST:event_rdoGravelActionPerformed
+
+    private void mniExitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniExitActionPerformed
+        // exit the application
+        System.exit(0);
+    }//GEN-LAST:event_mniExitActionPerformed
+
+    private void mniSubmitOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniSubmitOrderActionPerformed
+        JOptionPane.showMessageDialog(this, "Method is not complete.");
+    }//GEN-LAST:event_mniSubmitOrderActionPerformed
+
+    private void mniResetActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_mniResetActionPerformed
+        reset();
+    }//GEN-LAST:event_mniResetActionPerformed
 
     /**
      * @param args the command line arguments
@@ -240,124 +284,31 @@ public class LandscapeGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnCalculate;
-    private javax.swing.JButton btnSubmitOrder;
-    private javax.swing.JLabel lblAddress;
+    private javax.swing.ButtonGroup btgYardType;
+    private javax.swing.JButton btnNext;
+    private javax.swing.JButton btnReset;
+    private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JLabel lblCompanyName;
+    private javax.swing.JLabel lblGrassCost;
+    private javax.swing.JLabel lblGravelCost;
     private javax.swing.JLabel lblInstructions1;
-    private javax.swing.JLabel lblInstructions2;
-    private javax.swing.JLabel lblLength;
-    private javax.swing.JLabel lblName;
-    private javax.swing.JLabel lblOrderSummary;
-    private javax.swing.JLabel lblWidth;
-    private javax.swing.JScrollPane scrOrderSummary;
-    private javax.swing.JTextArea txaOrderInfo;
-    private javax.swing.JTextField txtAddress;
-    private javax.swing.JTextField txtLength;
-    private javax.swing.JTextField txtName;
-    private javax.swing.JTextField txtWidth;
+    private javax.swing.JLabel lblPhoto;
+    private javax.swing.JMenuItem mniExit;
+    private javax.swing.JMenuItem mniReset;
+    private javax.swing.JMenuItem mniSubmitOrder;
+    private javax.swing.JMenu mnuFile;
+    private javax.swing.JMenu mnuOrder;
+    private javax.swing.JRadioButton rdoGrass;
+    private javax.swing.JRadioButton rdoGravel;
     // End of variables declaration//GEN-END:variables
 
-    private boolean validateInputs() {
-        String sName = txtName.getText();
-        String sAddress = txtAddress.getText();
-        String sWidth = txtWidth.getText();
-        String sLength = txtLength.getText();
-
-        if (sName.equals("")) {
-            JOptionPane.showMessageDialog(this, "Enter a Name",
-                    "Name Error", JOptionPane.ERROR_MESSAGE);
-            txtName.requestFocusInWindow();
-            return false;
-        }
-
-        if (sAddress.equals("")) {
-            JOptionPane.showMessageDialog(this, "Enter a Address",
-                    "Address Error", JOptionPane.ERROR_MESSAGE);
-            txtAddress.requestFocusInWindow();
-            return false;
-        }
-
-        if (sAddress.length() <= 5) {
-            JOptionPane.showMessageDialog(this,
-                    "Address isn't long enough.",
-                    "Address Error", JOptionPane.ERROR_MESSAGE);
-            txtAddress.requestFocusInWindow();
-            return false;
-        }
-
-        if (sWidth.equals("")) {
-            JOptionPane.showMessageDialog(this, "Enter a Width",
-                    "Width Error", JOptionPane.ERROR_MESSAGE);
-            txtWidth.requestFocusInWindow();
-            return false;
-        }
-
-        try {
-            Double.parseDouble(sWidth);
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Width must be a number",
-                    "Width Error", JOptionPane.ERROR_MESSAGE);
-            txtWidth.setText("");
-            txtWidth.requestFocusInWindow();
-            return false;
-        }
-
-        if (Double.parseDouble(sWidth) <= 0) {
-            JOptionPane.showMessageDialog(this,
-                    "Width must be greater than 0",
-                    "Width Error", JOptionPane.ERROR_MESSAGE);
-            txtWidth.setText("");
-            txtWidth.requestFocusInWindow();
-            return false;
-        }
-
-        if (sLength.equals("")) {
-            JOptionPane.showMessageDialog(this, "Enter a Length",
-                    "Length Error", JOptionPane.ERROR_MESSAGE);
-
-            txtLength.requestFocusInWindow();
-            return false;
-        }
-
-        try {
-            Double.parseDouble(sLength);
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(this, "Length must be a number",
-                    "Length Error", JOptionPane.ERROR_MESSAGE);
-            txtLength.setText("");
-            txtLength.requestFocusInWindow();
-            return false;
-
-        }
-
-        if (Double.parseDouble(sLength) <= 0) {
-            JOptionPane.showMessageDialog(this,
-                    "Length must be must be greater than 0",
-                    "Length Error", JOptionPane.ERROR_MESSAGE);
-            txtLength.setText("");
-            txtLength.requestFocusInWindow();
-            return false;
-        } else {
-            // all is good so return true
-            return true;
-        }
+    private void reset() {
+        // clear the radiobutton selection
+        btgYardType.clearSelection();
+        
+        // put the image back to "Dirt"
+        lblPhoto.setIcon(new ImageIcon(this.getClass().getResource("dirt.jpg")));
     }
 
-    private Customer createCustomer() {
-        String name = txtName.getText();
-        String address = txtAddress.getText();
-        double width = Double.parseDouble(txtWidth.getText());
-        double length = Double.parseDouble(txtLength.getText());
-        String yardType = "Grass";                // FIX THE TYPE
-        double totalCost = width * length * 5.0;  // FIX THE PRICE
 
-        Customer cust = new Customer(0, name, address, yardType,
-                length, width, totalCost);
-        return cust;
-    }
-
-    public void submitOrder() {
-        JOptionPane.showMessageDialog(this, "Method is not complete.");
-    }
 }
